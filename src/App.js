@@ -10,6 +10,7 @@ export default function App() {
 
   const onChannelSelect = (_channel) => {
     setChannel(_channel);
+
     window.history.pushState({}, _channel.name, "/" + _channel.url);
   };
 
@@ -28,8 +29,10 @@ export default function App() {
           <Channel
             channelUrl={channel.url}
             renderChatHeader={({ channel, user }) => (
+
               <ChatHeader channel={channel} user={user} onBack={onBack} />
-            )}
+            )
+            }
           />
         ) : (
           <ChannelList
@@ -38,7 +41,8 @@ export default function App() {
                 channel={channel}
                 onChannelSelect={onChannelSelect}
               />
-            )}
+            )
+            }
           />
         )}
       </SendBirdProvider>
